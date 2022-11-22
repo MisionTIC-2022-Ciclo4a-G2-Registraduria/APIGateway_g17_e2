@@ -15,6 +15,13 @@ def get_all_users() -> dict:
     return response.json()
 
 
+@user_blueprints.route("/user/login", methods=["POST"])
+def login_user() -> dict:
+    url = f"{url_base}/login"
+    response = requests.get(url, headers=HEADERS)
+    return response.json()
+
+
 @user_blueprints.route("/user/<int:id_>", methods=["GET"])
 def get_user_by_id(id_: int) -> dict:
     url = f"{url_base}/{id_}"
