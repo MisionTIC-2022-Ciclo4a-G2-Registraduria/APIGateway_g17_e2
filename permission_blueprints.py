@@ -40,7 +40,7 @@ def update_permission(id_: int) -> dict:
 
 
 @permission_blueprints.route("/permission/delete/<int:id_>", methods=['DELETE'])
-def delete_permission(id_: int):
+def delete_permission(id_: int) -> dict:
     url = f'{url_base}/delete/{id_}'
     response = requests.delete(url, headers=HEADERS)
     return {"message": "processed"}, response.status_code

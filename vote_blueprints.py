@@ -40,7 +40,7 @@ def update_vote(id_: str) -> dict:
 
 
 @vote_blueprints.route("/vote/delete/<string:id_>", methods=['DELETE'])
-def delete_vote(id_: str):
+def delete_vote(id_: str) -> dict:
     url = f'{url_base}/delete/{id_}'
     response = requests.delete(url, headers=HEADERS)
     return {"message": "processed"}, response.status_code
